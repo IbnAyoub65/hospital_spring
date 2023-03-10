@@ -69,8 +69,7 @@ public class MedecinController {
     }
 
     @PostMapping("/medecin/add-medecin")
-    public String add_medecin(@ModelAttribute("medecin")Medecin medecin, BindingResult bindingResult,Model model
-    ,String date1 , String date) throws ParseException {
+    public String add_medecin(@ModelAttribute("medecin")Medecin medecin, BindingResult bindingResult,Model model) throws ParseException {
 
         if(medecin == null){
             model.addAttribute("error","specialite incorrect");
@@ -122,8 +121,6 @@ public class MedecinController {
             valide = false;
         }
         if(valide){
-            List<Specialite> sp = specialiteService.get_All_Specialite();
-            medecin.setSpecialites(sp);
             medecinService.add_medecin(medecin);
             return "redirect:/medecin";
         }
@@ -135,8 +132,7 @@ public class MedecinController {
         if(medecin != null){
             medecin.setId(id);
         }
-        List<Specialite> sp = specialiteService.get_All_Specialite();
-        medecin.setSpecialites(sp);
+
         medecinService.add_medecin(medecin);
         return  "redirect:/medecin";
 

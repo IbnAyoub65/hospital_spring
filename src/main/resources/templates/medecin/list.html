@@ -41,6 +41,7 @@
         <th scope="col">Date Embauche</th>
         <th scope="col">Date Naissance</th>
         <th scope="col">Services</th>
+        <th scope="col">Specialites</th>
         <th scope="col">Action</th>
     </tr>
     </thead>
@@ -55,7 +56,11 @@
         <td th:text="${m.datedembauche}"></td>
         <td th:text="${m.datenaiss}"></td>
         <td th:text="${m.service.libelle}"></td>
-        <td><a class="btn btn-warning" th:href="@{/medecin/edit/{id}(id=${m.id})}">edit</a> <a class="btn btn-danger" th:href="@{/medecin/delete/{id}(id=${m.id})}">Supprimer</a></td>
+        <td><th:block  th:each="s: ${m.specialites}">
+            <p><span th:text="${s.libelle}"></span></p>
+        </th:block>
+        </td>
+        <td><a class="btn btn-warning" th:href="@{/medecin/edit/{id}(id=${m.id})}">edit</a> <a class="btn btn-danger" th:href="@{/medecin/delete/{id}(id=${m.id})}">delete</a></td>
     </tr>
     <tr>
         <th><a  th:href="@{/medecin/add}" class="container btn btn-primary ">Ajouter Medecin</a></th>

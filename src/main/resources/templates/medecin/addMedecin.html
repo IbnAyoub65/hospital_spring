@@ -42,16 +42,19 @@
         <label for="exampleInputEmail1" class="form-label">Date Naissance</label><br/>
         <input type="date" class="form-control"  id="exampleInputEmail6" th:field="*{datenaiss}">
         <label for="exampleInputEmail1" class="form-label">Date Embauche</label><br/>
-        <input type="date" class="form-control"   id="exampleInputEmail7" th:field="*{datedembauche}">
+        <input type="date" class="form-control"   id="exampleInputEmail7" th:field="*{datedembauche}"><br/>
+        <label for="exampleInputEmail1" class="form-label">Selection un service</label>
         <select th:value="0" th:field="*{service.id}" class="form-select mt-2" aria-label="Default select example">
             <!-- <option th:value="null" selected>Selection une categorie</option> -->
             <option th:each=" s : ${service}" th:value="${s.id}" th:text="${s.libelle}">
             </option>
-        </select>
-        <select th:value="0"  class="form-select mt-2" aria-label="Default select example">
+        </select><br/>
+        <label for="exampleInputEmail1" class="form-label">Specialites</label>
+        <select   class="form-select  mt-2" aria-label="Default select example" multiple th:field="*{specialites}" >
             <!-- <option th:value="null" selected>Selection une categorie</option> -->
-            <option th:each=" sp : ${specialites}" th:value="${sp.id}" th:text="${sp.libelle}">
+            <option  th:each=" sp : ${specialites}" th:value="${{sp}}" th:text="${sp.libelle}">
             </option>
+
         </select>
         <button type="submit" class="btn btn-primary m-2">Ajouter</button>
     </div>

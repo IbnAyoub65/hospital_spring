@@ -6,10 +6,11 @@ import com.example221.hospital.models.Medecin;
 import com.example221.hospital.repositories.MedecinRepositories;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@org.springframework.stereotype.Service
+@Service
 @Log
 public class MedecinService {
 
@@ -25,6 +26,10 @@ public class MedecinService {
             throw  e;
         }
     }
+
+   /* public List<Medecin> medecins_by_specialite(){
+        return medecinRepositories.findMedecinBySpecialite();
+    }*/
 
     public List<Medecin> get_all_medecin(){
         return medecinRepositories.findAll();

@@ -51,11 +51,12 @@
             <option th:each=" s : ${service}" th:value="${s.id}" th:text="${s.libelle}">
             </option>
         </select>
-        <select th:value="0"  class="form-select mt-2" aria-label="Default select example">
-            <!-- <option th:value="null" selected>Selection une categorie</option> -->
-            <option th:each=" sp : ${specialites}" th:value="${sp.id}" th:text="${sp.libelle}">
-            </option>
-        </select>
+        <select   class="form-select  mt-2" aria-label="Default select example" multiple th:field="*{specialites}" >
+        <!-- <option th:value="null" selected>Selection une categorie</option> -->
+        <option  th:each=" sp : ${specialites}" th:value="${{sp}}" th:text="${sp.libelle}">
+        </option>
+
+    </select>
         <button type="submit" class="btn btn-primary m-2">Modifier</button>
     </div>
 </form>
